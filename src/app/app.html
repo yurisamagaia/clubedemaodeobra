@@ -1,0 +1,24 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar style="text-align: center">
+      <img src="assets/img/logo.png" alt="Home" style="width: 200px; padding-top: 10px; padding-bottom: 20px">
+    </ion-toolbar>
+  </ion-header>
+  <ion-content style="background: #eaeaea">
+    <ion-list style="margin-top: 3px">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon>
+        {{p.title}}
+      </button>
+      <ion-list-header style="background: #eaeaea; margin-bottom: 0px !important">
+        Faça parte da equipe
+      </ion-list-header>
+      <button menuClose ion-item *ngFor="let pi of pageInscricao" (click)="openPage(pi)" style="color: #f4a400">
+        <ion-icon name="{{pi.icon}}"></ion-icon>
+        {{pi.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
